@@ -1,0 +1,576 @@
+/* ============================================================
+   CAC漫研部 · 映像研联合放映 · 苏联构成主义 (Soviet Constructivism) 核心样式表
+   画幅比例：自由自适应全长长海报 (基准宽 600px，高度随封面原画与内容自适应延伸，2x 导出即为 1200px 超清海报)
+   设计灵感：罗德琴科 (Rodchenko)、斯坚伯格兄弟 (Stenberg Brothers) 苏联先锋电影宣传画
+   特点：粗犷建筑几何、红黑米白高张力对比、摄影全宽不裁切展示、标语式大字排版
+   ============================================================ */
+
+:root {
+  /* 基础尺寸 */
+  --poster-w: 600px;
+  --poster-h: 800px;
+
+  /* 主题 1：苏维埃赤黑先锋 (Soviet Constructivist Red & Black - 经典红黑白) */
+  --soviet-bg: #f2ede4;                /* 做旧报纸米黄底 */
+  --soviet-red: #d90429;               /* 苏维埃赤红 */
+  --soviet-black: #111215;             /* 浓重墨黑 */
+  --soviet-paper: #ffffff;             /* 纯白 */
+  --soviet-border: #111215;            /* 纯黑硬轮廓 */
+  --soviet-text: #111215;
+  --soviet-text-rev: #ffffff;
+  --soviet-sub: #3d4048;
+  --soviet-font-display: "Impact", "Arial Black", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --soviet-font-mono: "JetBrains Mono", "SF Mono", Consolas, monospace;
+}
+
+/* 主题 2：斯坚伯格电影黑金 (Stenberg Cinema Black - 影展黑底质感) */
+.theme-stenberg-black {
+  --soviet-bg: #111215;
+  --soviet-red: #e63946;
+  --soviet-black: #1c1e24;
+  --soviet-paper: #f8f9fa;
+  --soviet-border: #e63946;
+  --soviet-text: #f8f9fa;
+  --soviet-text-rev: #111215;
+  --soviet-sub: #cbd5e1;
+}
+
+/* 主题 3：先锋革命赤红 (Revolutionary Red Ground - 大色块赤红底) */
+.theme-red-avantgarde {
+  --soviet-bg: #d90429;
+  --soviet-red: #111215;
+  --soviet-black: #ffffff;
+  --soviet-paper: #111215;
+  --soviet-border: #111215;
+  --soviet-text: #ffffff;
+  --soviet-text-rev: #111215;
+  --soviet-sub: #fce7e7;
+}
+
+/* 主题 4：构成主义工业黄黑 (Constructivist Ochre - 工业机械黑黄) */
+.theme-industrial-ochre {
+  --soviet-bg: #141518;
+  --soviet-red: #f59e0b;
+  --soviet-black: #202228;
+  --soviet-paper: #fef3c7;
+  --soviet-border: #f59e0b;
+  --soviet-text: #fef3c7;
+  --soviet-text-rev: #141518;
+  --soviet-sub: #cbd5e1;
+}
+
+/* 海报画框根容器 (默认自由自适应长海报：宽度 600px，高度纵向自由延伸，绝不截断底边与二维码) */
+.poster-container {
+  width: var(--poster-w);
+  min-height: var(--poster-h);
+  height: auto !important;
+  position: relative;
+  overflow: visible !important;
+  box-sizing: border-box;
+  background-color: var(--soviet-bg);
+  color: var(--soviet-text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.7);
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  border: 4px solid var(--soviet-border);
+}
+
+/* 固定画框模式支持 (若用户主动切换固定画幅) */
+.poster-container.ratio-3-4 {
+  height: 800px !important;
+  max-height: 800px !important;
+  overflow: hidden !important;
+}
+.poster-container.ratio-3-4 .soviet-hero-stage {
+  height: 320px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: #0d0f12 !important;
+}
+.poster-container.ratio-3-4 .soviet-cover-img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  box-shadow: 0 0 0 1.5px var(--soviet-border), 0 4px 16px rgba(0, 0, 0, 0.5);
+}
+
+.poster-container.ratio-9-16 {
+  height: 1066px !important;
+  max-height: 1066px !important;
+  overflow: hidden !important;
+}
+.poster-container.ratio-9-16 .soviet-hero-stage {
+  height: 480px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: #0d0f12 !important;
+}
+.poster-container.ratio-9-16 .soviet-cover-img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  box-shadow: 0 0 0 1.5px var(--soviet-border), 0 4px 16px rgba(0, 0, 0, 0.5);
+}
+
+/* 构成主义背景：报纸版画质感颗粒与斜向几何构图 */
+.poster-ambient-mask {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  background-image: radial-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 0);
+  background-size: 8px 8px;
+}
+
+/* ================= 1. 顶部苏联前卫先锋标语横幅 (Banner Strip) ================= */
+.soviet-header-strip {
+  position: relative;
+  z-index: 10;
+  height: 32px;
+  background: var(--soviet-black);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  border-bottom: 3px solid var(--soviet-red);
+  flex-shrink: 0;
+}
+
+.soviet-header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--soviet-font-display);
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.soviet-red-wedge {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-left: 11px solid var(--soviet-red);
+}
+
+.soviet-header-right {
+  font-family: var(--soviet-font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 1px;
+}
+
+/* ================= 2. 封面展示区 (直接宽度最大化 100% 顶满！0裁切！无遮挡！) ================= */
+.soviet-hero-stage {
+  position: relative;
+  width: 100%;
+  height: auto;
+  min-height: unset;
+  background: #0d0f12;
+  border-bottom: 3.5px solid var(--soviet-border);
+  display: block;
+  overflow: hidden;
+  flex-shrink: 0;
+  z-index: 5;
+  padding: 0;
+  margin: 0;
+  line-height: 0;
+}
+
+/* 核心：封面图片直接 100% 宽度顶满海报左右两边！纵向随原图比例自然展开，不留黑边，绝不裁切！ */
+.soviet-cover-img {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 100% !important;
+  height: auto !important;
+  max-height: none !important;
+  display: block !important;
+  object-fit: cover;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+}
+
+/* 移除遮挡在封面图上的装饰标签，确保原画 100% 纯净展示 */
+.soviet-corner-badge,
+.soviet-corner-flag {
+  display: none !important;
+}
+
+/* ================= 3. 下部内容板 (Content Area) ================= */
+.soviet-content-board {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px 16px 14px 16px;
+  box-sizing: border-box;
+  background: var(--soviet-bg);
+  flex: none;
+}
+
+/* ================= 4. 构成主义放映日程告示牌 (双列几何方块，支持换行) ================= */
+.soviet-schedule-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 2px;
+}
+
+.schedule-block {
+  border: 2px solid var(--soviet-border);
+  background: var(--soviet-black);
+  color: #ffffff;
+  padding: 6px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  position: relative;
+}
+
+.schedule-block.red-block {
+  background: var(--soviet-red);
+  border-color: var(--soviet-border);
+}
+
+.schedule-tag-head {
+  font-family: var(--soviet-font-display);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.schedule-tag-value {
+  font-size: 13.5px;
+  font-weight: 900;
+  line-height: 1.35;
+  color: #ffffff;
+  letter-spacing: 0.3px;
+  white-space: pre-line; /* 支持换行 */
+  word-break: break-word;
+}
+
+/* ================= 5. 放映作品列表 (支持多片连映与回车换行) ================= */
+.soviet-works-section {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 2px;
+}
+
+/* 标签通用样式 (放在作品标题后) */
+.soviet-tag-inline {
+  display: inline-flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.soviet-tag-stamp {
+  padding: 1px 6px;
+  background: var(--soviet-red);
+  color: #ffffff;
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  font-family: var(--soviet-font-mono);
+  border: 1px solid var(--soviet-border);
+}
+
+/* 单部作品展示样式 (巨大字体，张力拉满) */
+.soviet-work-single {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.soviet-work-title-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.soviet-work-main-title {
+  font-size: 25px;
+  font-weight: 900;
+  line-height: 1.18;
+  letter-spacing: 0.5px;
+  color: var(--soviet-text);
+  white-space: pre-line; /* 支持回车换行 */
+  word-break: break-word;
+}
+
+.soviet-work-sub-title {
+  font-family: var(--soviet-font-mono);
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--soviet-sub);
+  letter-spacing: 0.5px;
+  line-height: 1.3;
+  white-space: pre-line; /* 支持回车换行 */
+  word-break: break-word;
+}
+
+.soviet-synopsis-box {
+  border: 1.5px solid var(--soviet-border);
+  background: rgba(255, 255, 255, 0.4);
+  padding: 6px 10px;
+  margin-top: 3px;
+  position: relative;
+}
+
+.soviet-synopsis-head {
+  font-family: var(--soviet-font-display);
+  font-size: 9.5px;
+  font-weight: 900;
+  color: var(--soviet-red);
+  letter-spacing: 1px;
+  margin-bottom: 2px;
+}
+
+.soviet-synopsis-text {
+  font-size: 11px;
+  line-height: 1.45;
+  color: var(--soviet-text);
+  margin: 0;
+  white-space: pre-line; /* 支持回车换行 */
+  word-break: break-word;
+}
+
+/* 多部作品连映样式 */
+.soviet-work-multi {
+  border: 2px solid var(--soviet-border);
+  background: rgba(255, 255, 255, 0.5);
+  border-left: 5px solid var(--soviet-red);
+  padding: 5px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.multi-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.multi-title-group {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  flex: 1;
+}
+
+.multi-num-badge {
+  font-family: var(--soviet-font-display);
+  font-size: 11px;
+  font-weight: 900;
+  color: #fff;
+  background: var(--soviet-red);
+  padding: 0 4px;
+}
+
+.multi-title-text {
+  font-size: 15px;
+  font-weight: 900;
+  color: var(--soviet-text);
+  white-space: pre-line;
+  word-break: break-word;
+}
+
+.multi-sub-text {
+  font-family: var(--soviet-font-mono);
+  font-size: 9.5px;
+  color: var(--soviet-sub);
+}
+
+.multi-synopsis-text {
+  font-size: 10px;
+  line-height: 1.38;
+  color: var(--soviet-text);
+  margin: 0;
+  white-space: pre-line;
+  word-break: break-word;
+}
+
+/* ================= 6. 构成主义双列信息区：左侧 参会须知 + 右侧 超大双群二维码 ================= */
+.soviet-bottom-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  align-items: stretch;
+  margin-bottom: 2px;
+}
+
+.soviet-ps-box {
+  border: 2px solid var(--soviet-border);
+  background: var(--soviet-black);
+  color: #ffffff;
+  padding: 6px 10px;
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.soviet-ps-head {
+  font-family: var(--soviet-font-display);
+  font-size: 10px;
+  font-weight: 900;
+  color: var(--soviet-red);
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  text-transform: uppercase;
+}
+
+.soviet-ps-list {
+  margin: 0;
+  padding-left: 14px;
+  font-size: 9.5px;
+  line-height: 1.42;
+  color: #ffffff;
+  white-space: pre-line; /* 支持回车换行 */
+}
+
+.soviet-ps-list li {
+  margin-bottom: 2px;
+}
+.soviet-ps-list li:last-child {
+  margin-bottom: 0;
+}
+
+/* 右侧超大社群二维码展区 (横向空间充分利用，扫码面积扩充至 3 倍以上) */
+.soviet-qr-box {
+  border: 2px solid var(--soviet-border);
+  background: var(--soviet-black);
+  color: #ffffff;
+  padding: 6px 8px 8px 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.soviet-qr-box-head {
+  font-family: var(--soviet-font-display);
+  font-size: 10px;
+  font-weight: 900;
+  color: var(--soviet-red);
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  text-transform: uppercase;
+}
+
+.soviet-qr-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 8px;
+  flex: 1;
+}
+
+.soviet-qr-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.soviet-qr-frame {
+  width: 92px;
+  height: 92px;
+  background: #ffffff;
+  border: 2px solid var(--soviet-red);
+  padding: 3px;
+  box-sizing: border-box;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+.soviet-qr-img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+}
+
+.soviet-qr-label {
+  font-size: 10.5px;
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  text-align: center;
+  font-family: var(--soviet-font-mono);
+}
+
+/* ================= 7. 构成主义底栏：联合放映全宽字标 ================= */
+.soviet-footer-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 8px;
+  padding-bottom: 2px;
+  border-top: 3.5px solid var(--soviet-border);
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.soviet-footer-brand {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.soviet-brand-title {
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  color: var(--soviet-text);
+  white-space: pre-line; /* 支持换行 */
+  line-height: 1.2;
+}
+
+.soviet-brand-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.soviet-session-badge {
+  font-family: var(--soviet-font-mono);
+  background: var(--soviet-red);
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 900;
+  padding: 2px 8px;
+  letter-spacing: 1px;
+}
+
+.soviet-brand-sub {
+  font-family: var(--soviet-font-mono);
+  font-size: 9px;
+  font-weight: 800;
+  color: var(--soviet-sub);
+  letter-spacing: 1px;
+}
