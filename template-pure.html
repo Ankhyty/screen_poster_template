@@ -45,7 +45,7 @@
     💡 <strong>提示</strong>：这是 3:4 苏联构成主义先锋风格纯静态模板。封面画面完整缩放不裁切，文字支持自由换行。推荐双击直接打开 <strong><code>index.html</code></strong>，可可视化免跨域报错导出 1200×1600 超清图片。
   </div>
 
-  <!-- 海报根节点 (3:4 比例，600×800) -->
+  <!-- 海报根节点 (标准海报画框，宽 600px) -->
   <div class="poster-container" id="posterFrame">
     <div class="poster-ambient-mask"></div>
 
@@ -56,91 +56,124 @@
         <span>CAC.ANIME × EIZOUKEN</span>
       </div>
       <div class="soviet-header-right">
-        <span>ПРЕМЬЕРА // 联合放映会</span>
+        <span>SPECIAL PREMIERE // JOINT SCREENING</span>
       </div>
     </div>
 
     <!-- 2. 封面展示区 (彻底无裁切！完整原比例缩放自适应展示) -->
     <div class="soviet-hero-stage">
-      <div class="soviet-corner-badge">КИНО</div>
-      <div class="soviet-corner-flag">ARCHIVE // 2026</div>
-
       <img class="soviet-cover-img" src="assets/images/sample-cover.svg" alt="动画封面">
     </div>
 
     <!-- 3. 下部内容主板 -->
     <div class="soviet-content-board">
 
-      <!-- 构成主义放映日程告示牌 (红黑双块对比，支持换行) -->
-      <section class="soviet-schedule-grid">
-        <div class="schedule-block red-block">
-          <div class="schedule-tag-head">ВРЕМЯ // 放映时间</div>
-          <div class="schedule-tag-value">2026年10月03日（周六）
+      <!-- 顶端：主标题区 (大标题独占首行，副标题独占次行，标签独占独立行) -->
+      <header class="soviet-hero-header">
+        <h1 class="soviet-main-title">你的名字。</h1>
+        <div class="soviet-sub-title">君の名は。 · YOUR NAME (2016) / CoMix Wave Films</div>
+        <div class="soviet-tag-row">
+          <div class="soviet-tag-inline">
+            <span class="soviet-tag-stamp">[ 剧场版 ]</span>
+            <span class="soviet-tag-stamp">[ 奇幻青春 ]</span>
+            <span class="soviet-tag-stamp">[ 新海诚 ]</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- 双栏主体网格：左栏 简介 & 看点 / 右栏 4大统一格式栏目 (中缝立柱分割) -->
+      <div class="soviet-main-grid">
+
+        <!-- 左栏：作品简介与看点 (开放通透，纯净阅读流，段间距舒展饱满) -->
+        <div class="soviet-col-content">
+          <section class="soviet-synopsis-panel">
+            <div class="soviet-panel-head">
+              <span class="soviet-red-wedge" style="border-left-width: 8px; border-top-width: 5px; border-bottom-width: 5px;"></span>
+              <span>SYNOPSIS // 剧情梗概 & 看点</span>
+            </div>
+            <div class="soviet-synopsis-body">
+              <p class="soviet-synopsis-para">在深山乡间生活的女高中生三叶，与在东京生活的男高中生泷，在睡梦中奇妙地交换了灵魂。</p>
+              <p class="soviet-synopsis-para">随着跨越时空的羁绊加深，千年一遇的彗星危机正悄然逼近……</p>
+              <p class="soviet-synopsis-para">极致的光影美术与 RADWIMPS 经典配乐，大银幕重温不容错过的感动！</p>
+            </div>
+          </section>
+        </div>
+
+        <!-- 右栏：四大统一格式栏目 (时间、地点、注意事项、二维码) -->
+        <div class="soviet-col-info">
+
+          <!-- 栏目 01：放映时间 (上下空隙加宽，舒展大气) -->
+          <section class="soviet-info-card card-time">
+            <div class="soviet-card-header">
+              <span class="soviet-card-num">01</span>
+              <span class="soviet-card-label">
+                <span class="en-tag">TIME</span><span class="sep-slash">//</span><span class="zh-tag">放映时间</span>
+              </span>
+            </div>
+            <div class="soviet-card-body">
+              <div class="soviet-schedule-text">2026年10月03日（周六）
 18:00 - 22:00</div>
-        </div>
-        <div class="schedule-block">
-          <div class="schedule-tag-head">МЕСТО // 放映场地</div>
-          <div class="schedule-tag-value">大学生活动中心 302
+            </div>
+          </section>
+
+          <!-- 栏目 02：放映场地 (上下空隙加宽，舒展大气) -->
+          <section class="soviet-info-card card-venue">
+            <div class="soviet-card-header">
+              <span class="soviet-card-num">02</span>
+              <span class="soviet-card-label">
+                <span class="en-tag">VENUE</span><span class="sep-slash">//</span><span class="zh-tag">活动地点</span>
+              </span>
+            </div>
+            <div class="soviet-card-body">
+              <div class="soviet-venue-text">大学生活动中心 302
 多媒体活动室</div>
-        </div>
-      </section>
-
-      <!-- 放映作品列表 (支持单片/多片连映与回车换行) -->
-      <div class="soviet-works-section">
-        <div class="soviet-work-single">
-          <div class="soviet-work-title-row">
-            <div class="soviet-work-main-title">《你的名字。》</div>
-            <div class="soviet-tag-inline">
-              <span class="soviet-tag-stamp">[ 剧场版 ]</span>
-              <span class="soviet-tag-stamp">[ 奇幻青春 ]</span>
-              <span class="soviet-tag-stamp">[ 新海诚 ]</span>
             </div>
-          </div>
-          <div class="soviet-work-sub-title">君の名は。 · YOUR NAME (2016) / CoMix Wave Films</div>
-          <div class="soviet-synopsis-box">
-            <div class="soviet-synopsis-head">★ О СЮЖЕТЕ // 剧情梗概 & 看点</div>
-            <div class="soviet-synopsis-text">
-在深山乡间生活的女高中生三叶，与在东京生活的男高中生泷，在睡梦中奇妙地交换了灵魂。
-随着跨越时空的羁绊加深，千年一遇的彗星危机正悄然逼近……
-极致的光影美术与 RADWIMPS 经典配乐，大银幕重温不容错过的感动！
+          </section>
+
+          <!-- 栏目 03：注意事项 (TIPS，适当收缩，紧凑利落) -->
+          <section class="soviet-info-card card-tips">
+            <div class="soviet-card-header">
+              <span class="soviet-card-num">03</span>
+              <span class="soviet-card-label">
+                <span class="en-tag">TIPS</span><span class="sep-slash">//</span><span class="zh-tag">参会须知</span>
+              </span>
             </div>
-          </div>
-        </div>
-      </div>
+            <div class="soviet-card-body">
+              <ul class="soviet-ps-list">
+                <li>现场随机掉落饮料零食。</li>
+                <li>正片放映结束后安排 20 分钟自由漫谈。</li>
+                <li>放映期间请文明观影，避免影响他人。</li>
+              </ul>
+            </div>
+          </section>
 
-      <!-- 构成主义 双列信息板：左侧 参会须知 + 右侧 超大双群二维码专区 -->
-      <div class="soviet-bottom-columns">
-        <!-- 左侧：参会须知与备忘 (Tips，支持换行) -->
-        <section class="soviet-ps-box">
-          <div class="soviet-ps-head">★ ВНИМАНИЕ // Tips</div>
-          <ul class="soviet-ps-list">
-            <li>现场随机掉落饮料零食。</li>
-            <li>正片放映结束后通常安排 20 分钟自由漫谈时间。</li>
-            <li>放映期间请文明观影，避免影响他人。</li>
-          </ul>
-        </section>
-
-        <!-- 右侧：超大扫码加入社群专区 (СВЯЗЬ // QR-КОДЫ) -->
-        <section class="soviet-qr-box">
-          <div class="soviet-qr-box-head">
-            <span class="soviet-red-wedge" style="border-left-width: 8px; border-top-width: 5px; border-bottom-width: 5px;"></span>
-            <span>СВЯЗЬ // 扫码加入社群</span>
-          </div>
-          <div class="soviet-qr-group">
-            <div class="soviet-qr-item">
-              <div class="soviet-qr-frame">
-                <img class="soviet-qr-img" src="assets/images/CAC漫研部.png" alt="CAC漫研部">
+          <!-- 栏目 04：社群二维码 (qr-card 弹性吸收垂直空间) -->
+          <section class="soviet-info-card qr-card">
+            <div class="soviet-card-header">
+              <span class="soviet-card-num">04</span>
+              <span class="soviet-card-label">
+                <span class="en-tag">COMMUNITY</span><span class="sep-slash">//</span><span class="zh-tag">扫码加入</span>
+              </span>
+            </div>
+            <div class="soviet-card-body">
+              <div class="soviet-qr-group">
+                <div class="soviet-qr-item">
+                  <div class="soviet-qr-frame">
+                    <img class="soviet-qr-img" src="assets/images/CAC漫研部.png" alt="CAC漫研部">
+                  </div>
+                  <span class="soviet-qr-label">CAC漫研部</span>
+                </div>
+                <div class="soviet-qr-item">
+                  <div class="soviet-qr-frame">
+                    <img class="soviet-qr-img" src="assets/images/CAC映像研.png" alt="CAC映像研">
+                  </div>
+                  <span class="soviet-qr-label">CAC映像研</span>
+                </div>
               </div>
-              <span class="soviet-qr-label">CAC漫研部</span>
             </div>
-            <div class="soviet-qr-item">
-              <div class="soviet-qr-frame">
-                <img class="soviet-qr-img" src="assets/images/CAC映像研.png" alt="CAC映像研">
-              </div>
-              <span class="soviet-qr-label">CAC映像研</span>
-            </div>
-          </div>
-        </section>
+          </section>
+
+        </div>
       </div>
 
       <!-- 底部：全宽联合放映品牌横栏 (大号字标 + 届数编号) -->
@@ -150,7 +183,7 @@
         </div>
         <div class="soviet-brand-meta">
           <span class="soviet-session-badge">№ 12 // 2026 SPRING</span>
-          <span class="soviet-brand-sub">ПРЕМЬЕРНЫЙ ПОКАЗ</span>
+          <span class="soviet-brand-sub">SPECIAL SCREENING</span>
         </div>
       </footer>
 

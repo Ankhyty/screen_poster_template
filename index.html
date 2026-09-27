@@ -192,104 +192,22 @@
       flex: none !important;
       display: flex !important;
       flex-direction: column !important;
-      gap: 8px !important;
-      padding: 10px 16px 14px 16px !important;
+      gap: 6px !important;
+      padding: 8px 16px 8px 16px !important;
       box-sizing: border-box !important;
       background: var(--soviet-bg) !important;
     }
 
-    /* 双列并排：左侧 注意事项 + 右侧 超大双群二维码 */
-    .soviet-bottom-columns {
-      display: grid !important;
-      grid-template-columns: 1fr 1fr !important;
-      gap: 8px !important;
-      align-items: stretch !important;
-      margin-bottom: 2px !important;
-    }
 
-    .soviet-ps-box {
-      border: 2px solid var(--soviet-border) !important;
-      background: var(--soviet-black) !important;
-      color: #ffffff !important;
-      padding: 6px 10px !important;
-      margin-bottom: 0 !important;
-      display: flex !important;
-      flex-direction: column !important;
-    }
-
-    .soviet-qr-box {
-      border: 2px solid var(--soviet-border) !important;
-      background: var(--soviet-black) !important;
-      color: #ffffff !important;
-      padding: 6px 8px 8px 8px !important;
-      display: flex !important;
-      flex-direction: column !important;
-      justify-content: space-between !important;
-    }
-
-    .soviet-qr-box-head {
-      font-family: var(--soviet-font-display) !important;
-      font-size: 10px !important;
-      font-weight: 900 !important;
-      color: var(--soviet-red) !important;
-      letter-spacing: 1px !important;
-      margin-bottom: 4px !important;
-      display: flex !important;
-      align-items: center !important;
-      gap: 4px !important;
-      text-transform: uppercase !important;
-    }
-
-    .soviet-qr-group {
-      display: flex !important;
-      align-items: center !important;
-      justify-content: space-around !important;
-      gap: 8px !important;
-      flex: 1 !important;
-    }
-
-    .soviet-qr-item {
-      display: flex !important;
-      flex-direction: column !important;
-      align-items: center !important;
-      gap: 4px !important;
-    }
-
-    .soviet-qr-frame {
-      width: 92px !important;
-      height: 92px !important;
-      background: #ffffff !important;
-      border: 2px solid var(--soviet-red) !important;
-      padding: 3px !important;
-      box-sizing: border-box !important;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4) !important;
-    }
-
-    .soviet-qr-img {
-      width: 100% !important;
-      height: 100% !important;
-      display: block !important;
-      object-fit: contain !important;
-    }
-
-    .soviet-qr-label {
-      font-size: 10.5px !important;
-      font-weight: 900 !important;
-      color: #ffffff !important;
-      letter-spacing: 0.5px !important;
-      white-space: nowrap !important;
-      text-align: center !important;
-      font-family: var(--soviet-font-mono) !important;
-    }
 
     .soviet-footer-bar {
       display: flex !important;
       align-items: center !important;
       justify-content: space-between !important;
-      padding-top: 8px !important;
+      padding-top: 6px !important;
       padding-bottom: 2px !important;
-      border-top: 3.5px solid var(--soviet-border) !important;
-      gap: 12px !important;
+      border-top: 2.5px solid var(--soviet-border) !important;
+      gap: 10px !important;
       flex-shrink: 0 !important;
     }
 
@@ -346,15 +264,15 @@
   <header class="app-navbar">
     <div class="app-brand">
       <span>★ CAC漫研部 · 映像研联合放映</span>
-      <span class="app-brand-badge" id="brandBadgeRatio">СССР · 自由长海报 (宽度最大化)</span>
+      <span class="app-brand-badge" id="brandBadgeRatio">POSTER // 自由长海报 (宽度最大化)</span>
     </div>
 
     <div class="nav-actions">
       <div style="display: flex; align-items: center; gap: 6px;">
         <label for="posterRatioSelect" style="font-size: 11.5px; color: #94a3b8; font-weight: 600;">海报比例:</label>
         <select id="posterRatioSelect" class="input-select" style="padding: 5px 8px; font-size: 11.5px; width: auto; background: #1f2937; border-color: #374151; color: #e2e8f0; cursor: pointer;">
-          <option value="auto" selected>✨ 自由自适应长海报 (推荐 · 封面全宽 · 0裁切)</option>
-          <option value="ratio-3-4">📐 固定 3:4 比例 (600×800)</option>
+          <option value="ratio-3-4" selected>📐 标准 3:4 比例 (600×800 · 原版默认)</option>
+          <option value="auto">✨ 自由自适应长海报 (高度随封面延伸)</option>
           <option value="ratio-9-16">📱 固定 9:16 比例 (600×1066)</option>
         </select>
       </div>
@@ -430,7 +348,7 @@
         <div class="group-title">// 03 // 放映日程与场地 (支持按回车换行)</div>
         <div class="form-field">
           <label class="field-label" for="inputTime">
-            <span>放映时间 (ВРЕМЯ // DATE & TIME)</span>
+            <span>放映时间 (TIME // DATE & TIME)</span>
             <span class="field-hint">支持回车多行</span>
           </label>
           <textarea id="inputTime" class="input-textarea" rows="2">2026年10月03日（周六）
@@ -438,7 +356,7 @@
         </div>
         <div class="form-field">
           <label class="field-label" for="inputLocation">
-            <span>放映地点 (МЕСТО // VENUE)</span>
+            <span>放映地点 (VENUE // LOCATION)</span>
             <span class="field-hint">支持回车多行</span>
           </label>
           <textarea id="inputLocation" class="input-textarea" rows="2">大学生活动中心 302
@@ -462,12 +380,12 @@
         </button>
       </div>
 
-      <!-- 5. 参会须知与备忘 (Tips，支持按回车换行) -->
+      <!-- 5. 参会须知与备忘 (TIPS，统一格式栏目) -->
       <div class="form-group-card">
-        <div class="group-title">// 05 // Tips (ВНИМАНИЕ)</div>
+        <div class="group-title">// 05 // 参会须知 (TIPS)</div>
         <div class="form-field">
-          <label class="field-label" for="inputPsTitle">备忘标题</label>
-          <input type="text" id="inputPsTitle" class="input-text" value="★ ВНИМАНИЕ // Tips">
+          <label class="field-label" for="inputPsTitle">须知栏目标题 (双语格式)</label>
+          <input type="text" id="inputPsTitle" class="input-text" value="TIPS // 参会须知">
         </div>
         <div class="form-field">
           <label class="field-label" for="inputPsContent">
@@ -535,7 +453,7 @@
               <span>CAC.ANIME × EIZOUKEN</span>
             </div>
             <div class="soviet-header-right">
-              <span>ПРЕМЬЕРА // 联合放映会</span>
+              <span>SPECIAL PREMIERE // JOINT SCREENING</span>
             </div>
           </div>
 
@@ -547,58 +465,94 @@
           <!-- 3. 下部内容主板 -->
           <div class="soviet-content-board">
 
-            <!-- 构成主义放映日程告示牌 (红黑双块对比，支持换行) -->
-            <section class="soviet-schedule-grid">
-              <div class="schedule-block red-block">
-                <div class="schedule-tag-head">ВРЕМЯ // 放映时间</div>
-                <div class="schedule-tag-value" id="viewTime">2026年10月03日（周六）
+            <!-- 顶端作品大标题区 (顶端展示，无书名号) -->
+            <header class="soviet-hero-header" id="viewHeroHeader">
+              <!-- 动态注入标题与副标题 -->
+            </header>
+
+            <!-- 双栏主体网格：左栏 简介 & 看点 / 右栏 4大统一格式栏目 (开放式线条排版) -->
+            <div class="soviet-main-grid">
+
+              <!-- 左栏：作品简介与看点区 -->
+              <div class="soviet-col-content" id="viewSynopsisCol">
+                <!-- 动态注入简介或连映卡片 -->
+              </div>
+
+              <!-- 右栏：四大统一格式栏目 (时间、地点、注意事项、二维码) -->
+              <div class="soviet-col-info">
+
+                <!-- 栏目 01：放映时间 (上下空隙加宽，舒展大气) -->
+                <section class="soviet-info-card card-time">
+                  <div class="soviet-card-header">
+                    <span class="soviet-card-num">01</span>
+                    <span class="soviet-card-label">
+                      <span class="en-tag">TIME</span><span class="sep-slash">//</span><span class="zh-tag">放映时间</span>
+                    </span>
+                  </div>
+                  <div class="soviet-card-body">
+                    <div class="soviet-schedule-text" id="viewTime">2026年10月03日（周六）
 18:00 - 22:00</div>
-              </div>
-              <div class="schedule-block">
-                <div class="schedule-tag-head">МЕСТО // 放映场地</div>
-                <div class="schedule-tag-value" id="viewLocation">大学生活动中心 302
+                  </div>
+                </section>
+
+                <!-- 栏目 02：放映场地 (上下空隙加宽，舒展大气) -->
+                <section class="soviet-info-card card-venue">
+                  <div class="soviet-card-header">
+                    <span class="soviet-card-num">02</span>
+                    <span class="soviet-card-label">
+                      <span class="en-tag">VENUE</span><span class="sep-slash">//</span><span class="zh-tag">活动地点</span>
+                    </span>
+                  </div>
+                  <div class="soviet-card-body">
+                    <div class="soviet-venue-text" id="viewLocation">大学生活动中心 302
 多媒体活动室</div>
+                  </div>
+                </section>
+
+                <!-- 栏目 03：注意事项 (TIPS，适当收缩，紧凑利落) -->
+                <section class="soviet-info-card card-tips">
+                  <div class="soviet-card-header">
+                    <span class="soviet-card-num">03</span>
+                    <span class="soviet-card-label" id="viewPsHeaderLabel">
+                      <span class="en-tag">TIPS</span><span class="sep-slash">//</span><span class="zh-tag">参会须知</span>
+                    </span>
+                  </div>
+                  <div class="soviet-card-body">
+                    <ul class="soviet-ps-list" id="viewPsList">
+                      <li>现场随机掉落饮料零食。</li>
+                      <li>正片放映结束后安排 20 分钟自由漫谈。</li>
+                      <li>放映期间请文明观影，避免影响他人。</li>
+                    </ul>
+                  </div>
+                </section>
+
+                <!-- 栏目 04：社群二维码 (qr-card 弹性吸收垂直空间) -->
+                <section class="soviet-info-card qr-card">
+                  <div class="soviet-card-header">
+                    <span class="soviet-card-num">04</span>
+                    <span class="soviet-card-label">
+                      <span class="en-tag">COMMUNITY</span><span class="sep-slash">//</span><span class="zh-tag">扫码加入</span>
+                    </span>
+                  </div>
+                  <div class="soviet-card-body">
+                    <div class="soviet-qr-group">
+                      <div class="soviet-qr-item">
+                        <div class="soviet-qr-frame">
+                          <img class="soviet-qr-img" id="viewQrImg1" alt="CAC漫研部二维码">
+                        </div>
+                        <span class="soviet-qr-label" id="viewQrName1">CAC漫研部</span>
+                      </div>
+                      <div class="soviet-qr-item">
+                        <div class="soviet-qr-frame">
+                          <img class="soviet-qr-img" id="viewQrImg2" alt="CAC映像研二维码">
+                        </div>
+                        <span class="soviet-qr-label" id="viewQrName2">CAC映像研</span>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+
               </div>
-            </section>
-
-            <!-- 放映作品列表 (支持单片/多片连映，标签置于标题后，支持换行) -->
-            <div class="soviet-works-section" id="viewWorksContainer">
-              <!-- 动态注入作品 -->
-            </div>
-
-            <!-- 构成主义 双列信息板：左侧 参会须知 + 右侧 超大双群二维码专区 -->
-            <div class="soviet-bottom-columns">
-              <!-- 左侧：参会须知与备忘 (Tips，支持换行) -->
-              <section class="soviet-ps-box">
-                <div class="soviet-ps-head" id="viewPsTitle">★ ВНИМАНИЕ // Tips</div>
-                <ul class="soviet-ps-list" id="viewPsList">
-                  <li>现场随机掉落饮料零食。</li>
-                  <li>正片放映结束后通常安排 20 分钟自由漫谈时间。</li>
-                  <li>放映期间请文明观影，避免影响他人。</li>
-                </ul>
-              </section>
-
-              <!-- 右侧：超大扫码加入社群专区 (СВЯЗЬ // QR-КОДЫ) -->
-              <section class="soviet-qr-box">
-                <div class="soviet-qr-box-head">
-                  <span class="soviet-red-wedge" style="border-left-width: 8px; border-top-width: 5px; border-bottom-width: 5px;"></span>
-                  <span>СВЯЗЬ // 扫码加入社群</span>
-                </div>
-                <div class="soviet-qr-group">
-                  <div class="soviet-qr-item">
-                    <div class="soviet-qr-frame">
-                      <img class="soviet-qr-img" id="viewQrImg1" alt="CAC漫研部二维码">
-                    </div>
-                    <span class="soviet-qr-label" id="viewQrName1">CAC漫研部</span>
-                  </div>
-                  <div class="soviet-qr-item">
-                    <div class="soviet-qr-frame">
-                      <img class="soviet-qr-img" id="viewQrImg2" alt="CAC映像研二维码">
-                    </div>
-                    <span class="soviet-qr-label" id="viewQrName2">CAC映像研</span>
-                  </div>
-                </div>
-              </section>
             </div>
 
             <!-- 底部：全宽联合放映品牌横栏 (大号字标 + 届数编号) -->
@@ -608,7 +562,7 @@
               </div>
               <div class="soviet-brand-meta">
                 <span class="soviet-session-badge" id="viewSessionBadge">№ 12 // 2026 SPRING</span>
-                <span class="soviet-brand-sub">ПРЕМЬЕРНЫЙ ПОКАЗ</span>
+                <span class="soviet-brand-sub">SPECIAL SCREENING</span>
               </div>
             </footer>
 
@@ -636,7 +590,7 @@
 
   <!-- 交互逻辑脚本 -->
   <script>
-    // 3 套不同题材经典预设模板 (包含单作精选与多部连映)
+    // 4 套不同题材经典预设模板 (包含单片精选与多部连映)
     const DEMO_PRESETS = [
       {
         theme: '',
@@ -644,13 +598,13 @@
         sessionBadge: '№ 01 // 2026 SPRING',
         time: '2026年10月03日（周六）\n18:00 - 22:00',
         location: '大学生活动中心 302\n多媒体活动室',
-        psTitle: '★ ВНИМАНИЕ // Tips',
-        psContent: '现场随机掉落饮料零食。\n正片放映结束后通常安排 20 分钟自由漫谈时间。\n放映期间请文明观影，避免影响他人。',
+        psTitle: 'TIPS // 参会须知',
+        psContent: '现场随机掉落饮料零食。\n正片放映结束后安排 20 分钟自由漫谈。\n放映期间请文明观影，避免影响他人。',
         qrName1: 'CAC漫研部',
         qrName2: 'CAC映像研',
         works: [
           {
-            titleCn: '《你的名字。》',
+            titleCn: '你的名字。',
             titleOrig: '君の名は。 · YOUR NAME (2016) / 新海诚 监督',
             tags: '剧场版, 奇幻青春, 经典重温',
             synopsis: '在深山乡间生活的女高中生三叶，与在东京生活的男高中生泷，在睡梦中奇妙地交换了灵魂。\n随着跨越时空的羁绊加深，千年一遇的彗星危机正悄然逼近……\n极致的光影美术与 RADWIMPS 经典配乐，大银幕重温不容错过的感动！'
@@ -660,23 +614,48 @@
       {
         theme: 'theme-stenberg-black',
         clubName: 'CAC漫研部·映像研联合放映',
+        sessionBadge: '№ 07 // U.C.特映巡礼',
+        time: '2026年5月02日 (周六)\n17:30 - 21:30',
+        location: '大学生活动中心 302\n多媒体活动室',
+        psTitle: 'TIPS // 参会与讨论须知',
+        psContent: '本次为《闪光的哈萨维》两部连映，中场休息 15 分钟。\n正片放映结束后安排 30 分钟高达宇宙世纪剧情与机设沙龙漫谈！\n场内请文明观影，欢迎携带高达模型来现场交流～',
+        qrName1: 'CAC漫研部',
+        qrName2: 'CAC映像研',
+        works: [
+          {
+            titleCn: '机动战士高达 闪光的哈萨维 Ⅰ',
+            titleOrig: 'Mobile Suit Gundam Hathaway · 村濑修功 监督',
+            tags: '高达U.C., 硬派机战, 泽野弘之',
+            synopsis: 'U.C.0105，第二次新吉翁战争十二年后。继承阿姆罗与夏亚意志的哈萨维·诺亚，化名为马法蒂·纳比尤·艾林，驾驶全新高达Ξ（Xi）向腐朽的地球联邦高层发起暗夜突袭，在宿命交错中拉开反叛序幕。'
+          },
+          {
+            titleCn: '机动战士高达 闪光的哈萨维 Ⅱ',
+            titleOrig: 'The Son of Bright · Sunrise / 松竹',
+            tags: '宿命对决, 佩涅罗佩, 齐尔刻部队',
+            synopsis: '澳大利亚战线硝烟再起，马法蒂组织与雷恩·艾姆驾驶的佩涅罗佩展开激烈的空中格斗。琪琪·安达露西亚的神秘预言、联邦军的全面合围，哈萨维即将迎来改变时代的终极决战！'
+          }
+        ]
+      },
+      {
+        theme: 'theme-stenberg-black',
+        clubName: 'CAC漫研部·映像研联合放映',
         sessionBadge: '№ 08 // 特映巡礼',
         time: '2026年4月10日 (周五)\n18:30 - 21:00',
         location: '图书馆报告厅 (东区)\n二楼放映厅',
-        psTitle: '★ ВНИМАНИЕ // 新海诚双片连映备忘',
+        psTitle: 'TIPS // 新海诚双片连映备忘',
         psContent: '本次为两部连映，中途设有 10 分钟中场休息与茶歇交流。\n前 30 名签到同学可在入口领取限定放映纪念票根！\n欢迎携带纸巾，祝观影愉快～',
         qrName1: 'CAC漫研部',
         qrName2: 'CAC映像研',
         works: [
           {
-            titleCn: '《言叶之庭》',
-            titleOrig: '言の葉の庭 · 入野自由 / 花泽香菜 (46分钟)',
+            titleCn: '言叶之庭',
+            titleOrig: '言の葉の庭 · 入野自由 / 花泽香菜',
             tags: '雨之物语, 唯美写实',
             synopsis: '以制鞋为梦想的高中生秋月孝雄，与迷茫的神秘女性雪野百香里，在雨季的日式庭园中相遇，展开了一段隐秘而纯粹的羁绊。'
           },
           {
-            titleCn: '《秒速5厘米》',
-            titleOrig: '秒速5センチメートル · 新海诚 监督代表作 (63分钟)',
+            titleCn: '秒速5厘米',
+            titleOrig: '秒速5センチメートル · 新海诚 监督代表作',
             tags: '青春物语, 樱花飞逝',
             synopsis: '“樱花飘落的速度是秒速5厘米，那我该用怎样的速度才能与你相遇？”\n三个关于成长、距离与错过的动人篇章。'
           }
@@ -688,13 +667,13 @@
         sessionBadge: '№ 14 // 京阿尼特辑',
         time: '2026年4月24日 (周五)\n18:30 - 20:30',
         location: '大学生活动中心 201\n音乐排练厅',
-        psTitle: '★ ВНИМАНИЕ // 观影会茶歇特别企划',
+        psTitle: 'TIPS // 观影会茶歇特别企划',
         psContent: '放映现场供应红茶与草莓蛋糕切片（轻音部传统茶话会！）\n欢迎携带应援棒或乐器同好交流，可小声跟唱插入曲～\n放映结束有现场即兴小试奏，欢迎带琴来玩！',
         qrName1: 'CAC漫研部',
         qrName2: 'CAC映像研',
         works: [
           {
-            titleCn: '《轻音少女！》剧场版',
+            titleCn: '轻音少女！剧场版',
             titleOrig: 'K-ON! MOVIE · 山田尚子 监督 / 京都动画',
             tags: '京阿尼, 音乐治愈, 伦敦毕业行',
             synopsis: '即将毕业的轻音部四人策划了一次伦敦毕业旅行！\n在异国街头她们会带来怎样的音乐演出，又将为学妹梓写下怎样的告别曲？'
@@ -737,10 +716,11 @@
       livePoster: document.getElementById('livePoster'),
       liveHeroWrap: document.getElementById('liveHeroWrap'),
       viewCoverImg: document.getElementById('viewCoverImg'),
+      viewHeroHeader: document.getElementById('viewHeroHeader'),
+      viewSynopsisCol: document.getElementById('viewSynopsisCol'),
       viewTime: document.getElementById('viewTime'),
       viewLocation: document.getElementById('viewLocation'),
-      viewWorksContainer: document.getElementById('viewWorksContainer'),
-      viewPsTitle: document.getElementById('viewPsTitle'),
+      viewPsHeaderLabel: document.getElementById('viewPsHeaderLabel'),
       viewPsList: document.getElementById('viewPsList'),
       viewClubName: document.getElementById('viewClubName'),
       viewSessionBadge: document.getElementById('viewSessionBadge'),
@@ -764,6 +744,12 @@
       appPreviewStage: document.querySelector('.app-preview-stage')
     };
 
+    // 辅助函数：去除片名中的书名号《》
+    function stripBookBrackets(str) {
+      if (!str) return '';
+      return str.replace(/^[《〈<]+|[》〉>]+$/g, '').trim();
+    }
+
     // 渲染左侧作品编辑器列表 (支持换行)
     function renderWorksEditor() {
       els.worksEditorList.innerHTML = '';
@@ -778,7 +764,7 @@
             ${currentWorks.length > 1 ? `<button type="button" class="btn-del-work" data-index="${index}">[ ✕ 删除 ]</button>` : ''}
           </div>
           <div class="form-field">
-            <label class="field-label">作品中文名 (支持回车换行)</label>
+            <label class="field-label">作品中文名 (不需书名号，支持回车换行)</label>
             <textarea class="input-textarea edit-work-title" data-index="${index}" rows="1">${escapeHtml(work.titleCn)}</textarea>
           </div>
           <div class="form-field">
@@ -846,10 +832,10 @@
       });
     }
 
-    // 添加新作品
+    // 添加新作品 (默认无书名号)
     els.btnAddWork.addEventListener('click', () => {
       currentWorks.push({
-        titleCn: `《放映作品 0${currentWorks.length + 1}》`,
+        titleCn: `放映作品 0${currentWorks.length + 1}`,
         titleOrig: 'ANIME SUBTITLE',
         tags: '精选放映',
         synopsis: '请输入本作品的剧情梗概与看点……'
@@ -867,47 +853,84 @@
       return `<div class="soviet-tag-inline">${tags.map(t => `<span class="soviet-tag-stamp">[ ${escapeHtml(t)} ]</span>`).join('')}</div>`;
     }
 
-    // 渲染海报作品区 (完整支持换行，Tag紧随标题)
+    // 渲染海报作品区 (顶端展示标题且无书名号，左栏展示简介/连映)
     function renderPosterWorks() {
-      els.viewWorksContainer.innerHTML = '';
+      if (!els.viewHeroHeader || !els.viewSynopsisCol) return;
+      els.viewHeroHeader.innerHTML = '';
+      els.viewSynopsisCol.innerHTML = '';
 
       if (currentWorks.length === 1) {
-        // 单部作品：巨大字重，强烈视觉张力
+        // 单部作品：顶端大标题（无书名号），左栏剧情梗概
         const work = currentWorks[0];
+        const titleClean = stripBookBrackets(work.titleCn) || '放映作品';
         const tagsHtml = buildTagsHTML(work.tags);
-        const singleDiv = document.createElement('div');
-        singleDiv.className = 'soviet-work-single';
-        singleDiv.innerHTML = `
-          <div class="soviet-work-title-row">
-            <div class="soviet-work-main-title">${escapeHtml(work.titleCn || '放映作品')}</div>
-            ${tagsHtml}
-          </div>
-          ${work.titleOrig ? `<div class="soviet-work-sub-title">${escapeHtml(work.titleOrig)}</div>` : ''}
-          <div class="soviet-synopsis-box">
-            <div class="soviet-synopsis-head">★ О СЮЖЕТЕ // 剧情梗概 & 看点</div>
-            <div class="soviet-synopsis-text">${escapeHtml(work.synopsis || '暂无剧情简介。')}</div>
-          </div>
+
+        // 1. 顶端大标题区 (大标题独占首行，副标题独占次行，标签独占独立行)
+        els.viewHeroHeader.innerHTML = `
+          <h1 class="soviet-main-title">${escapeHtml(titleClean)}</h1>
+          ${work.titleOrig ? `<div class="soviet-sub-title">${escapeHtml(work.titleOrig)}</div>` : ''}
+          ${tagsHtml ? `<div class="soviet-tag-row">${tagsHtml}</div>` : ''}
         `;
-        els.viewWorksContainer.appendChild(singleDiv);
-      } else {
-        // 多部作品：连映卡片式紧凑排版
-        currentWorks.forEach((work, idx) => {
-          const tagsHtml = buildTagsHTML(work.tags);
-          const multiCard = document.createElement('div');
-          multiCard.className = 'soviet-work-multi';
-          multiCard.innerHTML = `
-            <div class="multi-header-row">
-              <div class="multi-title-group">
-                <span class="multi-num-badge">№ 0${idx + 1}</span>
-                <span class="multi-title-text">${escapeHtml(work.titleCn || '放映作品')}</span>
-                ${work.titleOrig ? `<span class="multi-sub-text">${escapeHtml(work.titleOrig)}</span>` : ''}
-              </div>
-              ${tagsHtml}
+
+        // 2. 左栏剧情梗概 (开放式排版，分段排版增强左栏丰满度)
+        const paras = (work.synopsis || '暂无剧情简介。')
+          .split('\n')
+          .map(p => p.trim())
+          .filter(p => p.length > 0);
+        const parasHtml = paras.length > 0 
+          ? paras.map(p => `<p class="soviet-synopsis-para">${escapeHtml(p)}</p>`).join('')
+          : `<p class="soviet-synopsis-para">暂无剧情简介。</p>`;
+
+        els.viewSynopsisCol.innerHTML = `
+          <section class="soviet-synopsis-panel">
+            <div class="soviet-panel-head">
+              <span class="soviet-red-wedge" style="border-left-width: 8px; border-top-width: 5px; border-bottom-width: 5px;"></span>
+              <span>SYNOPSIS // 剧情梗概 & 看点</span>
             </div>
-            <div class="multi-synopsis-text">${escapeHtml(work.synopsis || '')}</div>
+            <div class="soviet-synopsis-body">
+              ${parasHtml}
+            </div>
+          </section>
+        `;
+      } else {
+        // 多部作品：连映模式
+        // 1. 顶端大标题：展示各部联合名称（去除书名号），视觉冲击力强
+        const allTitles = currentWorks.map(w => stripBookBrackets(w.titleCn)).filter(Boolean).join(' · ');
+        const allTags = currentWorks.map(w => w.tags).filter(Boolean).join(', ');
+        const tagsHtml = buildTagsHTML(allTags || '特映连映');
+
+        els.viewHeroHeader.innerHTML = `
+          <h1 class="soviet-main-title">${escapeHtml(allTitles || '联合连映特辑')}</h1>
+          <div class="soviet-sub-title">FEATURE PRESENTATION // DOUBLE FEATURE SPECIAL</div>
+          ${tagsHtml ? `<div class="soviet-tag-row">${tagsHtml}</div>` : ''}
+        `;
+
+        // 2. 左栏依次展示连映卡片
+        const cardsWrapper = document.createElement('div');
+        cardsWrapper.style.display = 'flex';
+        cardsWrapper.style.flexDirection = 'column';
+        cardsWrapper.style.gap = '6px';
+        cardsWrapper.style.height = '100%';
+
+        currentWorks.forEach((work, idx) => {
+          const titleClean = stripBookBrackets(work.titleCn) || `作品 0${idx + 1}`;
+          const singleTags = buildTagsHTML(work.tags);
+          const multiCard = document.createElement('div');
+          multiCard.className = 'soviet-multi-card';
+          multiCard.innerHTML = `
+            <div class="soviet-multi-title-row">
+              <div style="display: flex; align-items: baseline; gap: 5px; flex-wrap: wrap;">
+                <span class="soviet-multi-badge">№ 0${idx + 1}</span>
+                <span class="soviet-multi-name">${escapeHtml(titleClean)}</span>
+                ${work.titleOrig ? `<span class="soviet-multi-sub">${escapeHtml(work.titleOrig)}</span>` : ''}
+              </div>
+              ${singleTags}
+            </div>
+            <div class="soviet-multi-desc">${escapeHtml(work.synopsis || '')}</div>
           `;
-          els.viewWorksContainer.appendChild(multiCard);
+          cardsWrapper.appendChild(multiCard);
         });
+        els.viewSynopsisCol.appendChild(cardsWrapper);
       }
     }
 
@@ -915,7 +938,7 @@
     function updatePosterLayout() {
       if (!els.viewCoverImg) return;
 
-      const ratioMode = els.posterRatioSelect ? els.posterRatioSelect.value : 'auto';
+      const ratioMode = els.posterRatioSelect ? els.posterRatioSelect.value : 'ratio-3-4';
       const activeTheme = document.querySelector('.theme-option.active')?.getAttribute('data-theme') || '';
 
       // 获取图片原始长宽比与尺寸
@@ -944,7 +967,7 @@
         els.viewCoverImg.style.maxHeight = 'none';
         els.viewCoverImg.style.objectFit = 'cover';
         if (els.brandBadgeRatio) {
-          els.brandBadgeRatio.textContent = 'СССР · 自由长海报 (宽度最大化)';
+          els.brandBadgeRatio.textContent = 'POSTER // 自由长海报 (宽度最大化)';
         }
         if (els.previewHeaderTitle) {
           els.previewHeaderTitle.innerHTML = 'SOVIET CONSTRUCTIVISM // <strong>自由自适应长海报</strong> (宽 600px)';
@@ -968,7 +991,7 @@
         els.viewCoverImg.style.maxHeight = '100%';
         els.viewCoverImg.style.objectFit = 'contain';
         if (els.brandBadgeRatio) {
-          els.brandBadgeRatio.textContent = 'СССР · 固定 3:4 (600×800)';
+          els.brandBadgeRatio.textContent = 'POSTER // 固定 3:4 (600×800)';
         }
         if (els.previewHeaderTitle) {
           els.previewHeaderTitle.innerHTML = 'SOVIET CONSTRUCTIVISM // <strong>固定 3:4 比例</strong> (600 × 800)';
@@ -992,7 +1015,7 @@
         els.viewCoverImg.style.maxHeight = '100%';
         els.viewCoverImg.style.objectFit = 'contain';
         if (els.brandBadgeRatio) {
-          els.brandBadgeRatio.textContent = 'СССР · 固定 9:16 (600×1066)';
+          els.brandBadgeRatio.textContent = 'POSTER // 固定 9:16 (600×1066)';
         }
         if (els.previewHeaderTitle) {
           els.previewHeaderTitle.innerHTML = 'SOVIET CONSTRUCTIVISM // <strong>固定 9:16 移动全屏</strong> (600 × 1066)';
@@ -1027,8 +1050,16 @@
       els.viewTime.textContent = els.time.value || '时间待定';
       els.viewLocation.textContent = els.location.value || '地点待定';
 
-      // P.S. 列表 (支持换行，每行一条)
-      els.viewPsTitle.textContent = els.psTitle.value || '★ ВНИМАНИЕ // 参会须知';
+      // 须知标题与列表 (支持换行，每行一条)
+      if (els.viewPsHeaderLabel) {
+        const val = els.psTitle.value || 'TIPS // 参会须知';
+        if (val.includes('//')) {
+          const parts = val.split('//');
+          els.viewPsHeaderLabel.innerHTML = `<span class="en-tag">${escapeHtml(parts[0].trim())}</span><span class="sep-slash">//</span><span class="zh-tag">${escapeHtml(parts[1].trim())}</span>`;
+        } else {
+          els.viewPsHeaderLabel.textContent = val;
+        }
+      }
       const psLines = els.psContent.value.split('\n').filter(line => line.trim().length > 0);
       els.viewPsList.innerHTML = '';
       psLines.forEach(line => {
@@ -1186,7 +1217,7 @@
       els.qrName1.value = preset.qrName1;
       els.qrName2.value = preset.qrName2;
       if (els.posterRatioSelect) {
-        els.posterRatioSelect.value = preset.posterRatio || 'auto';
+        els.posterRatioSelect.value = preset.posterRatio || 'ratio-3-4';
       }
 
       currentWorks = JSON.parse(JSON.stringify(preset.works || []));
