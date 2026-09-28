@@ -610,33 +610,34 @@
   object-fit: contain;
 }
 
-/* 二维码标签：不用下划线，采用完整线框完全围起，透明底色与纸面融为一体 */
+/* 二维码标签：去除线框与色块，采用先锋展示体 (Impact/先锋黑体) 与主题赤红配色，纯净醒目 */
 .soviet-qr-label {
-  font-size: 10px;
-  font-weight: 800;
+  font-family: var(--soviet-font-display);
+  font-size: 11.5px;
+  font-weight: 900;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
   background: transparent;
-  color: var(--soviet-text);
-  padding: 2px 8px;
-  letter-spacing: 0.6px;
+  color: var(--soviet-red);
+  padding: 0;
   white-space: nowrap;
   text-align: center;
-  font-family: var(--soviet-font-mono);
-  border: 1.5px solid var(--soviet-border);
-  margin-top: 3px;
+  border: none;
+  margin-top: 4px;
   display: inline-block;
-  line-height: 1.25;
+  line-height: 1.3;
 }
 
 .theme-stenberg-black .soviet-qr-label {
   background: transparent;
-  color: #ffffff;
-  border-color: rgba(255, 255, 255, 0.45);
+  color: var(--soviet-red);
+  border: none;
 }
 
 .theme-industrial-ochre .soviet-qr-label {
   background: transparent;
-  color: #141518;
-  border-color: #141518;
+  color: var(--soviet-red);
+  border: none;
 }
 
 /* ================= 6. 构成主义底栏：联合放映全宽字标 ================= */
