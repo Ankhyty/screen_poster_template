@@ -610,7 +610,7 @@
   object-fit: contain;
 }
 
-/* 二维码标签：去除线框与色块，采用先锋展示体 (Impact/先锋黑体) 与主题赤红配色，纯净醒目 */
+/* 二维码标签：纯色先锋展示体 (Impact/先锋黑体)，深黑/主题色纯净醒目，无框无底色 */
 .soviet-qr-label {
   font-family: var(--soviet-font-display);
   font-size: 11.5px;
@@ -618,7 +618,7 @@
   letter-spacing: 1.2px;
   text-transform: uppercase;
   background: transparent;
-  color: var(--soviet-red);
+  color: var(--soviet-text);
   padding: 0;
   white-space: nowrap;
   text-align: center;
@@ -630,13 +630,13 @@
 
 .theme-stenberg-black .soviet-qr-label {
   background: transparent;
-  color: var(--soviet-red);
+  color: var(--soviet-text);
   border: none;
 }
 
 .theme-industrial-ochre .soviet-qr-label {
   background: transparent;
-  color: var(--soviet-red);
+  color: var(--soviet-text);
   border: none;
 }
 
