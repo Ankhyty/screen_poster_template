@@ -99,10 +99,6 @@
   padding: 8px 16px 8px 16px !important;
   gap: 6px !important;
 }
-.poster-container.ratio-3-4 .soviet-qr-frame {
-  width: 50px;
-  height: 50px;
-}
 
 .poster-container.ratio-9-16 {
   height: 1066px !important;
@@ -478,7 +474,7 @@
 .soviet-card-num {
   font-family: var(--soviet-font-mono);
   font-size: 10px;
-  font-weight: 900;
+  font-weight: 800;
   background: var(--soviet-red);
   color: #ffffff;
   padding: 1.5px 5.5px;
@@ -490,7 +486,7 @@
 .soviet-card-label {
   font-family: var(--soviet-font-display);
   font-size: 11px;
-  font-weight: 900;
+  font-weight: 700;
   letter-spacing: 0.8px;
   text-transform: uppercase;
   color: var(--soviet-text);
@@ -504,12 +500,13 @@
   color: var(--soviet-red);
   font-family: var(--soviet-font-display);
   letter-spacing: 1px;
+  font-weight: 700;
 }
 
 .soviet-card-label .sep-slash {
   color: var(--soviet-sub);
   opacity: 0.7;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .soviet-card-label .zh-tag {
@@ -524,13 +521,13 @@
   border: none;
 }
 
-/* 栏目 01 & 02：时间与场地文字 (字号微调至11px，字重600，行高1.45，清朗舒展不臃肿) */
+/* 栏目 01 & 02：时间与场地文字 (加大加粗至 13.5px / 字重 900，硬朗醒目，填满版面) */
 .soviet-schedule-text,
 .soviet-venue-text {
-  font-size: 11px;
-  font-weight: 600;
-  line-height: 1.45;
-  letter-spacing: 0.3px;
+  font-size: 13.5px;
+  font-weight: 900;
+  line-height: 1.42;
+  letter-spacing: 0.4px;
   color: var(--soviet-text);
   white-space: pre-line;
   word-break: break-word;
@@ -548,8 +545,8 @@
   padding: 0;
   list-style: none;
   font-size: 10px;
-  font-weight: 500;
-  line-height: 1.4;
+  font-weight: 400;
+  line-height: 1.45;
   color: var(--soviet-text);
 }
 
@@ -557,7 +554,7 @@
   position: relative;
   padding-left: 9px;
   margin-bottom: 2px;
-  line-height: 1.4;
+  line-height: 1.45;
 }
 
 .soviet-ps-list li:last-child {
@@ -570,11 +567,11 @@
   left: 0;
   top: -1px;
   color: var(--soviet-red);
-  font-weight: 900;
+  font-weight: 700;
   font-size: 11px;
 }
 
-/* 栏目 04：二维码 (两码在右侧栏均匀对称分布) */
+/* 栏目 04：二维码 (加大至 100px 居中排列，横向占满右栏 80%，饱满大气) */
 .soviet-info-card.qr-card {
   padding-top: 5px;
   padding-bottom: 2px;
@@ -584,24 +581,25 @@
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  padding: 2px 0;
+  justify-content: center;
+  gap: 24px;
+  padding: 3px 0 1px 0;
 }
 
 .soviet-qr-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2px;
+  gap: 3px;
 }
 
-/* 二维码画框：精简尺寸至 50px */
+/* 二维码画框：加大至 100px，横向占满右栏 80%，极佳扫码识别率 */
 .soviet-qr-frame {
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
   background: #ffffff;
   border: 1.5px solid var(--soviet-border);
-  padding: 2px;
+  padding: 3px;
   box-sizing: border-box;
 }
 
@@ -612,26 +610,34 @@
   object-fit: contain;
 }
 
-/* 二维码标签：黑底白字先锋印章，字迹清朗醒目 */
+/* 二维码标签：纯色先锋展示体 (Impact/先锋黑体)，深黑/主题色纯净醒目，无框无底色 */
 .soviet-qr-label {
-  font-size: 9px;
+  font-family: var(--soviet-font-display);
+  font-size: 11.5px;
   font-weight: 900;
-  background: var(--soviet-black);
-  color: #ffffff;
-  padding: 1px 5px;
-  letter-spacing: 0.5px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  background: transparent;
+  color: var(--soviet-text);
+  padding: 0;
   white-space: nowrap;
   text-align: center;
-  font-family: var(--soviet-font-mono);
-  border: 1px solid var(--soviet-border);
-  margin-top: 2px;
+  border: none;
+  margin-top: 4px;
   display: inline-block;
+  line-height: 1.3;
 }
 
-.theme-stenberg-black .soviet-qr-label,
+.theme-stenberg-black .soviet-qr-label {
+  background: transparent;
+  color: var(--soviet-text);
+  border: none;
+}
+
 .theme-industrial-ochre .soviet-qr-label {
-  background: var(--soviet-red);
-  color: #ffffff;
+  background: transparent;
+  color: var(--soviet-text);
+  border: none;
 }
 
 /* ================= 6. 构成主义底栏：联合放映全宽字标 ================= */
