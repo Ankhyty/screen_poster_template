@@ -380,12 +380,12 @@
         </button>
       </div>
 
-      <!-- 5. 参会须知与备忘 (ВНИМАНИЕ // Tips，统一格式栏目) -->
+      <!-- 5. 注意事项 (ВНИМАНИЕ // 注意事项，统一格式栏目) -->
       <div class="form-group-card">
-        <div class="group-title">// 05 // 参会须知 (ВНИМАНИЕ // Tips)</div>
+        <div class="group-title">// 05 // 注意事项 (ВНИМАНИЕ // 注意事项)</div>
         <div class="form-field">
-          <label class="field-label" for="inputPsTitle">须知栏目标题 (双语格式)</label>
-          <input type="text" id="inputPsTitle" class="input-text" value="ВНИМАНИЕ // Tips">
+          <label class="field-label" for="inputPsTitle">注意事项栏目标题 (双语格式)</label>
+          <input type="text" id="inputPsTitle" class="input-text" value="ВНИМАНИЕ // 注意事项">
         </div>
         <div class="form-field">
           <label class="field-label" for="inputPsContent">
@@ -509,12 +509,12 @@
                   </div>
                 </section>
 
-                <!-- 栏目 03：注意事项 (ВНИМАНИЕ // Tips) -->
+                <!-- 栏目 03：注意事项 (ВНИМАНИЕ // 注意事项) -->
                 <section class="soviet-info-card card-tips">
                   <div class="soviet-card-header">
                     <span class="soviet-card-num">03</span>
                     <span class="soviet-card-label" id="viewPsHeaderLabel">
-                      <span class="en-tag">ВНИМАНИЕ</span><span class="sep-slash">//</span><span class="zh-tag">Tips</span>
+                      <span class="en-tag">ВНИМАНИЕ</span><span class="sep-slash">//</span><span class="zh-tag">注意事项</span>
                     </span>
                   </div>
                   <div class="soviet-card-body">
@@ -598,7 +598,7 @@
         sessionBadge: '№ 01 // 2026 SPRING',
         time: '2026年10月03日（周六）\n18:00 - 22:00',
         location: '大学生活动中心 302\n多媒体活动室',
-        psTitle: 'ВНИМАНИЕ // Tips',
+        psTitle: 'ВНИМАНИЕ // 注意事项',
         psContent: '现场随机掉落饮料零食。\n正片放映结束后通常安排 20 分钟自由漫谈时间。\n放映期间请文明观影，避免影响他人。',
         qrName1: 'CAC漫研部',
         qrName2: 'CAC映像研',
@@ -617,7 +617,7 @@
         sessionBadge: '№ 07 // U.C.特映巡礼',
         time: '2026年5月02日 (周六)\n17:30 - 21:30',
         location: '大学生活动中心 302\n多媒体活动室',
-        psTitle: 'ВНИМАНИЕ // Tips',
+        psTitle: 'ВНИМАНИЕ // 注意事项',
         psContent: '本次为《闪光的哈萨维》两部连映，中场休息 15 分钟。\n正片放映结束后安排 30 分钟高达宇宙世纪剧情与机设沙龙漫谈！\n场内请文明观影，欢迎携带高达模型来现场交流～',
         qrName1: 'CAC漫研部',
         qrName2: 'CAC映像研',
@@ -642,7 +642,7 @@
         sessionBadge: '№ 08 // 特映巡礼',
         time: '2026年4月10日 (周五)\n18:30 - 21:00',
         location: '图书馆报告厅 (东区)\n二楼放映厅',
-        psTitle: 'ВНИМАНИЕ // Tips',
+        psTitle: 'ВНИМАНИЕ // 注意事项',
         psContent: '本次为两部连映，中途设有 10 分钟中场休息与茶歇交流。\n前 30 名签到同学可在入口领取限定放映纪念票根！\n欢迎携带纸巾，祝观影愉快～',
         qrName1: 'CAC漫研部',
         qrName2: 'CAC映像研',
@@ -667,7 +667,7 @@
         sessionBadge: '№ 14 // 京阿尼特辑',
         time: '2026年4月24日 (周五)\n18:30 - 20:30',
         location: '大学生活动中心 201\n音乐排练厅',
-        psTitle: 'ВНИМАНИЕ // Tips',
+        psTitle: 'ВНИМАНИЕ // 注意事项',
         psContent: '放映现场供应红茶与草莓蛋糕切片（轻音部传统茶话会！）\n欢迎携带应援棒或乐器同好交流，可小声跟唱插入曲～\n放映结束有现场即兴小试奏，欢迎带琴来玩！',
         qrName1: 'CAC漫研部',
         qrName2: 'CAC映像研',
@@ -1052,13 +1052,15 @@
 
       // 须知标题与列表 (支持换行，每行一条)
       if (els.viewPsHeaderLabel) {
-        let val = (els.psTitle.value || 'ВНИМАНИЕ // Tips').trim();
+        let val = (els.psTitle.value || 'ВНИМАНИЕ // 注意事项').trim();
         val = val.replace(/^[★*☆\s]+/, '').trim();
         if (val.includes('//')) {
           const parts = val.split('//');
           els.viewPsHeaderLabel.innerHTML = `<span class="en-tag">${escapeHtml(parts[0].trim())}</span><span class="sep-slash">//</span><span class="zh-tag">${escapeHtml(parts[1].trim())}</span>`;
+        } else if (val === '注意事项' || val === '参会须知' || val === 'Tips') {
+          els.viewPsHeaderLabel.innerHTML = `<span class="en-tag">ВНИМАНИЕ</span><span class="sep-slash">//</span><span class="zh-tag">${escapeHtml(val)}</span>`;
         } else {
-          els.viewPsHeaderLabel.innerHTML = `<span class="en-tag">${escapeHtml(val)}</span>`;
+          els.viewPsHeaderLabel.innerHTML = `<span class="zh-tag">${escapeHtml(val)}</span>`;
         }
       }
       const psLines = els.psContent.value.split('\n').filter(line => line.trim().length > 0);
@@ -1229,6 +1231,7 @@
     // 重置
     els.btnReset.addEventListener('click', () => {
       if (confirm('确定要恢复为苏联构成主义默认模板吗？')) {
+        localStorage.removeItem('cac_soviet_state_v6');
         localStorage.removeItem('cac_soviet_state_v5');
         localStorage.removeItem('cac_soviet_state_v4');
         localStorage.removeItem('cac_soviet_state_v3');
@@ -1257,19 +1260,19 @@
         works: currentWorks
       };
       try {
-        localStorage.setItem('cac_soviet_state_v5', JSON.stringify(state));
+        localStorage.setItem('cac_soviet_state_v6', JSON.stringify(state));
       } catch (e) {}
     }
 
     function loadFromStorage() {
       try {
-        let saved = localStorage.getItem('cac_soviet_state_v5');
+        let saved = localStorage.getItem('cac_soviet_state_v6');
         if (!saved) {
-          saved = localStorage.getItem('cac_soviet_state_v4');
+          saved = localStorage.getItem('cac_soviet_state_v5') || localStorage.getItem('cac_soviet_state_v4');
           if (saved) {
             const parsed = JSON.parse(saved);
-            if (!parsed.psTitle || parsed.psTitle.includes('★') || parsed.psTitle.includes('参会须知') || parsed.psTitle === 'TIPS // 参会须知' || parsed.psTitle.startsWith('TIPS')) {
-              parsed.psTitle = 'ВНИМАНИЕ // Tips';
+            if (!parsed.psTitle || parsed.psTitle.includes('★') || parsed.psTitle.includes('参会须知') || parsed.psTitle.includes('Tips') || parsed.psTitle.includes('TIPS')) {
+              parsed.psTitle = 'ВНИМАНИЕ // 注意事项';
             }
             if (parsed.psContent && parsed.psContent.includes('安排 20 分钟自由漫谈。')) {
               parsed.psContent = parsed.psContent.replace('安排 20 分钟自由漫谈。', '通常安排 20 分钟自由漫谈时间。');

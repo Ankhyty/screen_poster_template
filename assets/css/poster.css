@@ -610,30 +610,33 @@
   object-fit: contain;
 }
 
-/* 二维码标签：红底白字先锋印章，字迹清朗醒目 */
+/* 二维码标签：去除死板实色背景块，改为通透利落的赤红刻度底线图说排版 */
 .soviet-qr-label {
-  font-size: 9.5px;
+  font-size: 10px;
   font-weight: 800;
-  background: var(--soviet-red);
-  color: #ffffff;
-  padding: 1.5px 6px;
-  letter-spacing: 0.5px;
+  background: transparent;
+  color: var(--soviet-text);
+  padding: 0 2px 2px 2px;
+  letter-spacing: 0.6px;
   white-space: nowrap;
   text-align: center;
   font-family: var(--soviet-font-mono);
-  border: 1px solid var(--soviet-border);
-  margin-top: 1px;
+  border: none;
+  border-bottom: 2px solid var(--soviet-red);
+  margin-top: 2px;
   display: inline-block;
 }
 
 .theme-stenberg-black .soviet-qr-label {
-  background: var(--soviet-red);
+  background: transparent;
   color: #ffffff;
+  border-bottom-color: var(--soviet-red);
 }
 
 .theme-industrial-ochre .soviet-qr-label {
-  background: var(--soviet-red);
+  background: transparent;
   color: #141518;
+  border-bottom-color: var(--soviet-red);
 }
 
 /* ================= 6. 构成主义底栏：联合放映全宽字标 ================= */
